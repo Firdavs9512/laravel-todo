@@ -6,6 +6,7 @@ use App\Contracts\UserRepository as UserRepositoryContract;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserRepository implements UserRepositoryContract
 {
@@ -42,7 +43,8 @@ class UserRepository implements UserRepositoryContract
      */
     public function register(array $data): Model
     {
-        $this->user->create($data);
+        $data['password'] = Hash::make($data['password']);
+        $this->user = $this->user->create($data);
 
         Auth::login($this->user);
 

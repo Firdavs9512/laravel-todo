@@ -81,15 +81,24 @@
             @endforeach
 
             <div class="flex items-center px-4 pt-2 space-x-4">
-                <x-bladewind::button color="primary" href="{{ route('auth.login') }}" tag="a">
-                    Login
-                </x-bladewind::button>
+                @auth
+                    <form method="POST" action="{{ route('auth.logout') }}">
+                        @csrf
+                        <x-bladewind::button color="primary" can_submit="true">
+                            Logout
+                        </x-bladewind::button>
+                    </form>
+                @else
+                    <x-bladewind::button color="primary" href="{{ route('auth.login') }}" tag="a">
+                        Login
+                    </x-bladewind::button>
 
-                <div class="text-sm text-gray-500">or</div>
+                    <div class="text-sm text-gray-500">or</div>
 
-                <x-bladewind::button color="green" href="{{ route('auth.register') }}" tag="a">
-                    Register
-                </x-bladewind::button>
+                    <x-bladewind::button color="green" href="{{ route('auth.register') }}" tag="a">
+                        Register
+                    </x-bladewind::button>
+                @endauth
             </div>
         </div>
     </div>
