@@ -75,4 +75,16 @@ class TodoRepository implements TodoRepositoryContract
     {
         $this->todo->find($id)->delete();
     }
+
+    /**
+     * Toggle completed status of a record by ID
+     *
+     * @param int $id
+     * @return void
+     */
+    public function toggleCompleted(int $id): void
+    {
+        $todo = $this->todo->find($id);
+        $todo->update(['completed' => !$todo->completed]);
+    }
 }

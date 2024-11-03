@@ -23,12 +23,16 @@
                         <div>
                             <x-label for="description">Description</x-label>
                             <x-bladewind::textarea name="description" placeholder="Description"
-                            selected_value="{{ old('description', $todo->description) }}" :class="$errors->has('description') ? '!border-red-500' : ''">
+                                selected_value="{{ old('description', $todo->description) }}" :class="$errors->has('description') ? '!border-red-500' : ''">
                                 {{ $todo->description }}
                             </x-bladewind::textarea>
                             @error('description')
                                 <p class="-mt-2 text-xs text-red-500">{{ $message }}</p>
                             @enderror
+                        </div>
+
+                        <div>
+                            <x-bladewind::checkbox name="is_completed" :checked="old('is_completed', $todo->is_completed)" label="Completed" value="1" />
                         </div>
                     </div>
                     <div class="flex items-center justify-between">

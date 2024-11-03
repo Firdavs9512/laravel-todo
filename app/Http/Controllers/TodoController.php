@@ -50,4 +50,11 @@ class TodoController extends Controller
 
         return redirect()->route('todo.index');
     }
+
+    public function toggleCompleted(int $id)
+    {
+        $this->todoRepository->toggleCompleted($id);
+
+        return redirect()->route('todo.index');
+    }
 }

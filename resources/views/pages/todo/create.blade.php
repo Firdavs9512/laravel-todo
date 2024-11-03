@@ -27,6 +27,13 @@
                                 <p class="-mt-2 text-xs text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
+
+                        <div>
+                            <x-bladewind::checkbox name="is_completed" label="Completed" :checked="old('is_completed', false)" value="1" />
+                            @error('is_completed')
+                                <p class="-mt-2 text-xs text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     <div class="flex items-center justify-between">
                         <x-bladewind::button color="primary" can_submit="true">Create</x-bladewind::button>

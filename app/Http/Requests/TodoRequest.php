@@ -24,6 +24,7 @@ class TodoRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'is_completed' => 'nullable|boolean',
         ];
     }
 }

@@ -7,18 +7,28 @@
         <div class="mt-6 mb-12" x-data="{ selectedId: '' }">
             <x-bladewind::table bordered>
                 <x-slot name="header">
-                    <th>Completed</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Completed</th>
                     <th class="!text-right">Action</th>
                 </x-slot>
                 @forelse ($todos as $todo)
                     <tr>
-                        <td>
-                            <x-bladewind::checkbox />
-                        </td>
                         <td>{{ $todo->title }}</td>
                         <td>{{ $todo->description }}</td>
+                        <td>
+                            <div class="flex justify-center">
+                                @if ($todo->is_completed)
+                                    <div class="!inline-block px-2 py-1 text-green-500 border border-green-500 rounded-lg">
+                                        Yes
+                                    </div>
+                                @else
+                                    <div class="!inline-block px-2 py-1 text-red-500 border border-red-500 rounded-lg">
+                                        No
+                                    </div>
+                                @endif
+                            </div>
+                        </td>
                         <td class="text-right">
                             <x-bladewind::button color="primary" tag="a" icon="pencil"
                                 href="{{ route('todo.edit', $todo->id) }}">Edit</x-bladewind::button>

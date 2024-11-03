@@ -46,4 +46,12 @@ interface TodoRepository
      * @return void
      */
     public function delete(int $id): void;
+
+    /**
+     * Toggle completed status of a record by ID
+     *
+     * @param int $id
+     * @return void
+     */
+    public function toggleCompleted(int $id): void;
 }

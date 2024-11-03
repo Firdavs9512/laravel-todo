@@ -19,5 +19,6 @@ Route::controller(AuthController::class)->name('auth.')->group(function () {
 
 // Todo routes
 Route::middleware('auth')->group(function () {
-    Route::resource('todo', TodoController::class);
+    Route::resource('todo', TodoController::class)->except('show');
+    Route::post('todo/{id}/toggle-completed', [TodoController::class, 'toggleCompleted'])->name('todo.toggle-completed');
 });
