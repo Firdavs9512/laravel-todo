@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Task extends Model
+class Todo extends Model
 {
-    /** @use HasFactory<\Database\Factories\TaskFactory> */
+    /** @use HasFactory<\Database\Factories\TodoFactory> */
     use HasFactory;
 
     /**
@@ -22,6 +22,22 @@ class Task extends Model
         'is_completed',
         'user_id'
     ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'is_completed' => 'boolean',
+    ];
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'todos';
 
     /**
      * Get the user that owns the task.

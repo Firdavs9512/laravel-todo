@@ -6,9 +6,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Task>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Todo>
  */
-class TaskFactory extends Factory
+class TodoFactory extends Factory
 {
     /**
      * Define the model's default state.
