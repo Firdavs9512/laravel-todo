@@ -10,17 +10,17 @@
                 <form action="" class="mt-6 space-y-4">
                     <div class="space-y-4">
                         <div>
-                            <label for="name" class="text-sm text-gray-700 dark:text-gray-300">Name</label>
+                            <x-label for="name" required>Name</x-label>
                             <x-bladewind::input name="name" placeholder="Name" type="text" required />
                         </div>
 
                         <div>
-                            <label for="email" class="text-sm text-gray-700 dark:text-gray-300">Email</label>
+                            <x-label for="email" required>Email</x-label>
                             <x-bladewind::input name="email" placeholder="Email" type="email" required />
                         </div>
 
                         <div>
-                            <label for="password" class="text-sm text-gray-700 dark:text-gray-300">Password</label>
+                            <x-label for="password" required>Password</x-label>
                             <x-bladewind::input name="password" placeholder="Password" type="password" suffix="eye"
                                 viewable="true" required />
                         </div>
