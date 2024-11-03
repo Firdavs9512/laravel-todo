@@ -16,7 +16,11 @@
     @stack('styles')
 </head>
 
-<body class="min-h-screen text-gray-900 bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
+<body class="min-h-screen text-gray-900 bg-gray-100 dark:bg-gray-900 dark:text-gray-100" x-cloak>
+    @if (!request()->is('auth/*'))
+        <x-header />
+    @endif
+
     @yield('content')
 
     @stack('scripts')

@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => 'Home'])
 
 @section('content')
-    <div class="container mx-auto">
-        <h1>Home</h1>
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        Home
     </div>
 @endsection
