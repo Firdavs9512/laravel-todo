@@ -2,13 +2,18 @@
 
 namespace App\Repositories;
 
-use App\Contracts\BaseRepository;
+use App\Contracts\TodoRepository as TodoRepositoryContract;
 use App\Models\Todo;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
-class TodoRepository implements BaseRepository
+class TodoRepository implements TodoRepositoryContract
 {
+    public function __construct(
+        private Todo $todo
+    ) {}
+
     /**
      * Get all todo
      *
@@ -16,7 +21,7 @@ class TodoRepository implements BaseRepository
      */
     public function all(): Collection
     {
-        return Todo::all();
+        return $this->todo->where('user_id', Auth::id())->get();
     }
 
     /**
@@ -28,7 +33,7 @@ class TodoRepository implements BaseRepository
      */
     public function find(int $id): Model
     {
-        return Todo::find($id);
+        return $this->todo->find($id);
     }
 
     /**
@@ -40,7 +45,8 @@ class TodoRepository implements BaseRepository
      */
     public function create(array $data): Model
     {
-        return Todo::create($data);
+        $data['user_id'] = Auth::id();
+        return $this->todo->create($data);
     }
 
     /**
@@ -53,7 +59,9 @@ class TodoRepository implements BaseRepository
      */
     public function update(int $id, array $data): Model
     {
-        return Todo::find($id)->update($data);
+        $todo = $this->todo->find($id);
+        $todo->update($data);
+        return $todo;
     }
 
     /**
@@ -65,6 +73,6 @@ class TodoRepository implements BaseRepository
      */
     public function delete(int $id): void
     {
-        Todo::find($id)->delete();
+        $this->todo->find($id)->delete();
     }
 }

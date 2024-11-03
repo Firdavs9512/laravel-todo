@@ -17,6 +17,7 @@ class Header extends Component
     {
         $this->menuItems = [
             ['label' => 'Home', 'route' => 'home'],
+            ['label' => 'Todos', 'route' => 'todo.index'],
             ['label' => 'Create Todo', 'route' => 'todo.create'],
         ];
     }

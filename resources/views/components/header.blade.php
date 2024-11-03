@@ -12,7 +12,7 @@
                 <!-- Navigation Menu -->
                 <nav class="hidden sm:ml-6 sm:flex sm:space-x-8">
                     @foreach ($menuItems as $item)
-                        <a href="{{ $item['route'] }}"
+                        <a href="{{ route($item['route']) }}"
                             class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300 dark:text-gray-400 dark:hover:text-white dark:hover:border-gray-700">
                             {{ $item['label'] }}
                         </a>
@@ -74,7 +74,7 @@
     <div class="sm:hidden" x-show="open" x-transition>
         <div class="pt-2 pb-3 space-y-1">
             @foreach ($menuItems as $item)
-                <a href="{{ $item['route'] }}"
+                <a href="{{ route($item['route']) }}"
                     class="block py-2 pl-3 pr-4 text-base font-medium text-gray-500 border-l-4 border-transparent hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800 dark:hover:border-gray-700">
                     {{ $item['label'] }}
                 </a>

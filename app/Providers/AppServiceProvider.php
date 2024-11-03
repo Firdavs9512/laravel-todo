@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Contracts\UserRepository as UserRepositoryContract;
 use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Contracts\TodoRepository as TodoRepositoryContract;
+use App\Repositories\TodoRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
 
     private $containers = [
         UserRepositoryContract::class => UserRepository::class,
+        TodoRepositoryContract::class => TodoRepository::class,
     ];
 }
