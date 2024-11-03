@@ -17,3 +17,7 @@ Route::get('/register', function () {
 Route::post('/logout', function () {
     return redirect()->route('auth.login');
 })->name('auth.logout');
+
+Route::get('/todo/create', function () {
+    return view('pages.todo.create.create');
+})->name('todo.create');
