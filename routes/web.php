@@ -19,5 +19,9 @@ Route::post('/logout', function () {
 })->name('auth.logout');
 
 Route::get('/todo/create', function () {
-    return view('pages.todo.create.create');
+    return view('pages.todo.create');
 })->name('todo.create');
+
+Route::get('/todo', function () {
+    return view('pages.todo.index');
+})->name('todo.index');
