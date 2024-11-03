@@ -23,7 +23,7 @@ A simple Todo application built with Laravel, featuring user authentication and 
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/laravel-todo-app.git
+git clone https://github.com/Firdavs9512/laravel-todo.git
 ```
 
 2. Install dependencies
